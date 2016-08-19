@@ -54,7 +54,7 @@ class throwBall extends PluginBase implements Listener{
 			$yaw = $this->thrower[$i][1];
 			$pitch = $this->thrower[$i][2];
 			if($pitch > 40) $pitch += -6;//微調整
-      		elseif($pitch <= -40) $pitch += 10;//微調整
+      			elseif($pitch <= -40) $pitch += 10;//微調整
 			//echo "Pitch = ".$pitch." Yaw = ".$yaw."\n";
 			$t = $this->thrower[$i][3];
 			$ini_height = $this->thrower[$i][4];
@@ -63,6 +63,11 @@ class throwBall extends PluginBase implements Listener{
 			//-gt^2/2 + Votsinθ
 
 			$vecY = -((self::GRAVITY * $t**2) / 2) + (self::INI_VELO * $t * sin(deg2rad($pitch)));
+			
+//			自分用に説明
+//			二次元の場合、$baseはx成分となるが三次元空間の場合、
+// 			$baseは斜辺なので三角関数を使ってベクトルのx成分、y成分を出す。
+//			これによって$yawがどんな値でもまっすぐに投射することができる。
 
 			$base = self::INI_VELO * $t * cos(deg2rad($pitch));
 			$vecX = $base * cos(deg2rad($yaw));
