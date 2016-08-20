@@ -44,7 +44,7 @@ class throwBall extends PluginBase implements Listener{
 		$pitch = -$player->getPitch();//Pitch in a game is contrast.
 		$ini_height = $y + $player->getEyeHeight();//initial height
 
-		$this->thrower[] = [new Vector3($x, $ini_height, $z), $yaw, $pitch, 0.05, $ini_height, $player->getDirection()];
+		$this->thrower[] = [new Vector3($x, $ini_height, $z), $yaw, $pitch, 0.05, $ini_height];
 	}
 
 	public function throw()
@@ -58,7 +58,6 @@ class throwBall extends PluginBase implements Listener{
 			//echo "Pitch = ".$pitch." Yaw = ".$yaw."\n";
 			$t = $this->thrower[$i][3];
 			$ini_height = $this->thrower[$i][4];
-			$direction = $this->thrower[$i][5];
 
 			//-gt^2/2 + Votsinθ
 
