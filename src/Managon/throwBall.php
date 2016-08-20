@@ -65,7 +65,8 @@ class throwBall extends PluginBase implements Listener{
 			
 //			自分用に説明
 //			二次元の場合、$baseはx成分となるが三次元空間の場合、
-// 			$baseは斜辺なので三角関数を使ってベクトルのx成分、y成分を出す。
+// 			$baseは$vecYを高さとする場合の底辺であって、X軸を底辺とする三角形の斜辺なので
+//			三角関数を使ってベクトルのx成分、y成分を出す。
 //			これによって$yawがどんな値でもまっすぐに投射することができる。
 
 			$base = self::INI_VELO * $t * cos(deg2rad($pitch));
